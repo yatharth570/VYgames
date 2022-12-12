@@ -8,18 +8,6 @@ const path=require('path');
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const bcrypt=require('bcrypt');
-const async=require('async');
-const crypto=require('crypto');
-const nodemailer=require('nodemailer');
-const sgTransport=require('nodemailer-sendgrid-transport');
-const sgMail=require('@sendgrid/mail')
-const sgkey=process.env.SENDGRID_API_KEY;
-sgMail.setApiKey("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");
-const Transporter = nodemailer.createTransport(sgTransport({    
-  auth: {  
-    api_key:"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",
-  }  
-}));
 
 const isAuth = require('./middleware/is-auth.js');
 
@@ -48,7 +36,7 @@ const fileFilter = (req, file, cb) => {
 const app= express();
 
 const store = new MongoDBStore({
-  uri: "mongodb+srv://admin-yatharth:milenovo@gameapp-i8jer.mongodb.net/gameApp?retryWrites=true&w=majority",
+  uri: process.env.mongodb_uri,
   collection: 'sessions',
 });
 
@@ -79,7 +67,7 @@ app.use((req, res, next) => {
 
 
 
-mongoose.connect("mongodb+srv://admin-yatharth:milenovo@gameapp-i8jer.mongodb.net/gameApp?retryWrites=true&w=majority",{useNewUrlParser:true,useUnifiedTopology: true, useFindAndModify:false});
+mongoose.connect(process.env.mongodb_uri,{useNewUrlParser:true,useUnifiedTopology: true, useFindAndModify:false});
 
 const userSchema= new mongoose.Schema({
     firstName:String,
