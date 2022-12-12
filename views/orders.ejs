@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('includes/head.ejs'); -%>
+
+  <body>
+    <%- include('includes/header.ejs'); -%>
+        <main style="margin-top: 60px;">
+            <% if (order.length <= 0) { %>
+                <h1>Nothing there!</h1>
+            <% } else { %>
+                <ul class="orders">
+                    <% order.forEach(order => { %>
+                        <li class="orders__item">
+                            <h4>Order - # <%= order._id %></h4>
+                            <ul class="orders__products">
+                                <% order.games.forEach(p => { %>
+                                    <li class="orders__products-item"><%= p.gameName %></li>
+                                <% }); %>
+                            </ul>
+                        </li>
+                    <% }); %>
+                </ul>
+            <% } %>
+        </main>
+
+        </body>
+</html>

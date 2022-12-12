@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="/web_js.js"></script>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/styleInsert.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VY Games</title>
+</head>
+<body>
+  <%-include('includes/header')-%>
+  <center><div class="form">
+    <form action="/gameInsert" enctype="multipart/form-data" method="post">
+      <div class="form-group row first">
+          <label for="gameName" class="col-sm-3 col-form-label">Game's Name<br><div style="color: red;"><%=msg%></div></label>
+          <div class="col-sm-8">
+              <input type="text" name="gameName" class="form-control" id="gameName" placeholder="Game's Name">
+          </div>
+      </div>
+      <div class="form-group row">
+          <label for="company" class="col-sm-3 col-form-label">Developer's Name</label>
+          <div class="col-sm-3">
+              <input type="text" name="developerName" class="form-control" id="company" placeholder="Developer's Name">
+          </div>
+      </div>
+      <div class="form-group row">
+        <label for="genre" class="col-sm-3 col-form-label">Genre</label>
+        <div class="col-sm-8">
+          <select id="cars" name="genre">
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Action-adventure">Action-Adventure</option>
+            <option value="Shooting">Shooting</option>
+            <option value="Horror">Horror</option>
+            <option value="Fighting">Fighting</option>
+            <option value="Puzzle">Puzzle</option>
+            <option value="Racing">Racing</option>
+            <option value="Sports">Sports</option>
+          </select>
+        </div>
+    </div>
+    <div class="form-group row">
+      <label for="desc"class="col-sm-3 col-form-label">Description of Game</label>
+      <div class="col-sm-8">
+        <textarea name="desc" class="form-control" id="desc" placeholder="Description of game"rows="4" cols="50" ></textarea>
+    </div>
+    </div>
+    <div class="form-group row">
+      <label for="file" class="col-sm-3 col-form-label">Images of game</label>
+      <div class="col-sm-8">
+          <input type="file" name="img" class="form-control" id="file" placeholder="Images of game" accept="image/*">
+      </div>
+  </div>
+  
+
+      
+      <div class="form-group row">
+          <div class="col-sm-4 offset-sm-2">
+              <button type="submit" class="btn btn-primary">Insert Game</button>
+          </div>
+      </div>
+  </form></center>
+  </div>
+</body>
+</html>

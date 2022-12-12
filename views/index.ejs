@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('includes/head.ejs'); -%>
+  </head>
+  
+  <body>
+    <%- include('includes/header.ejs'); -%>
+    <div class="slider">
+      <% for(var i=0;i<3;++i) { %>
+        <a href="/products/<%= games[i]._id %>">
+          <div class="item"><img class="background" src="/<%= games[i].image %>"></div>
+        </a>      
+          <% } %>
+  </div>
+  <div class="slide">
+  <% for(var i=3;i<games.length;++i) { %>
+    <a href="/products/<%= games[i]._id %>">
+      <div class="item"><img src="/<%= games[i].image %>"></div>
+    </a>      
+      <% } %>
+    </div>
+    <h1 style="margin-left: 40px;">Action</h1>
+    <div class="slide" style="top: 0em;">
+      <% for(var i=0;i<games.length;++i) { %>
+        <%if(games[i].genre=="Action"){%>
+        <a href="/products/<%= games[i]._id %>">
+          <div class="item"><img src="/<%= games[i].image %>"></div>
+        </a>      
+        <%}} %>
+        </div>
+
+        <h1 style="margin-left: 40px;">Action-Adventure</h1>
+        <div class="slide" style="top:0em;">
+          <% for(var i=0;i<games.length;++i) { %>
+            <%if(games[i].genre=="Action-adventure"||games[i].genre=="Adventure"){%>
+            <a href="/products/<%= games[i]._id %>">
+              <div class="item"><img src="/<%= games[i].image %>"></div>
+            </a>      
+              <% }} %>
+            </div>
+            <h1 style="margin-left: 40px;">Shooting</h1>
+            <div class="slide" style="top:0em;">
+              <% for(var i=0;i<games.length;++i) { %>
+                <%if(games[i].genre=="Shooting"){%>
+                <a href="/products/<%= games[i]._id %>">
+                  <div class="item"><img src="/<%= games[i].image %>"></div>
+                </a>      
+                  <% }} %>
+                </div>
+        
+    
+  </body>
+</html>

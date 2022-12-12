@@ -1,0 +1,19 @@
+<header class="navbar" id="header">
+    <a href="/"><img src="/img/logo.png" height="50px" class="logo"></a>
+    <div class="menu" onclick="myFunction(this)">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+      <ul id="menu">
+      <li><a href="/">Home</a></li>
+      <li><a href="/games" ><img class="search_btn" src="/img/search_icon.png" height="25px"  style="filter: invert(100%); padding: 0; margin: 0;"></a></li>
+      <%if(isAuthenticated){%><li><a href="\cart">Cart</a></li>
+      <li><a href="/orders">Orders</a></li>
+      <li><a href="/logout">logout</a></li>
+      <%}%>
+      <%if(!isAuthenticated){%><li><a href="\login">Login</a></li>
+      <%}%>
+      </ul>
+      
+  </header>

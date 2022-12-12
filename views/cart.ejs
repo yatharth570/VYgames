@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('includes/head.ejs') %>
+<link rel="stylesheet" href="/css/cart.css">
+    
+    </head>
+
+    <body>
+        <%- include('includes/header.ejs') %>
+        <main style="margin-top: 100px;">
+            <% if (products.length > 0) { %>
+                <ul class="cart__item-list" style="right: 25%;">
+                    <% products.forEach(p => { %>
+                        <li class="cart__item">
+                            <h1><%= p.gameName %></h1>
+                            <form action="/cart-delete-item" method="POST">
+                                <input type="hidden" value="<%= p.gameName %>" name="productId">
+                                <button class="btn danger" type="submit">Delete</button>
+                            </form>
+                        </li>
+                    <% }) %>
+                </ul>
+                <hr>
+                <div>
+                    <center>
+                    <form action="/create-order" method="POST">
+                        <button type="submit" class="btn">Order Now!</button>
+                    </form>
+                </center>
+                </div>
+                
+            <% } else { %>
+                <h1>No Products in Cart!</h1>
+            <% } %>
+        </main>
